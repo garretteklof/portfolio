@@ -1,0 +1,100 @@
+.skills {
+  //background-color: blue;
+  display: flex;
+  justify-content: center;
+  //align-items: center;
+  flex-direction: column;
+  &__heading {
+    color: $white;
+    font-family: "Londrina Solid", cursive;
+    font-size: 8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr min-content 1fr;
+    grid-template-rows: repeat(2, min-content);
+    grid-column-gap: 3rem;
+    grid-row-gap: 3rem;
+    justify-items: center;
+    align-items: center;
+  }
+  &__type {
+    grid-column: 2;
+    grid-row: 2;
+    color: $white;
+    font-size: 4rem;
+    font-family: "Londrina Solid", cursive;
+    font-weight: 300;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+  &__pagination {
+    grid-row: 2;
+    background-color: $dark-grey;
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1rem 2rem rgba(black, 0.2);
+    transition: all 0.2s;
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba(black, 0.4);
+    }
+    &:active,
+    &:focus {
+      transform: translateY(0);
+      box-shadow: 0 1rem 2rem rgba(black, 0.2);
+    }
+    > svg {
+      fill: $white;
+      height: 4rem;
+      width: 4rem;
+    }
+    &--left {
+      grid-column: 1;
+      justify-self: end;
+    }
+    &--right {
+      grid-column: 3;
+      justify-self: start;
+    }
+  }
+  &__grid {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: repeat(4, min-content);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    min-height: 23rem;
+  }
+  &__skill {
+    background-color: $white;
+    padding: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 2rem 4rem rgba(black, 0.25);
+    > img {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+  &__stars {
+    display: flex;
+    margin-right: 3rem;
+    > svg {
+      fill: $star-yellow;
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+}

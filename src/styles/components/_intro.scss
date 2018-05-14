@@ -1,0 +1,67 @@
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__grid {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    align-items: center;
+    grid-column-gap: 4rem;
+  }
+  &__info {
+    color: $dark-grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    > *:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+  }
+  &__heading {
+    font-size: 8rem;
+    font-weight: 300;
+    text-transform: capitalize;
+    border-bottom: 1rem solid $dark-grey;
+  }
+  &__subheading {
+    font-size: 2.25rem;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  &__social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > *:not(:last-child) {
+      margin-right: 1rem;
+    }
+    &-box {
+      padding: 1.5rem;
+      border-radius: 50%;
+      background-color: $dark-grey;
+      box-shadow: 0 1rem 2rem rgba(black, 0.2);
+      transition: all 0.4s;
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 1rem 2rem rgba(black, 0.4);
+      }
+      &:active,
+      &:focus {
+        transform: translateY(0);
+        box-shadow: 0 1rem 2rem rgba(black, 0.2);
+      }
+      > svg {
+        height: 4rem;
+        width: 4rem;
+        fill: $white;
+      }
+    }
+  }
+  &__photo {
+    height: 60rem;
+    width: 40rem;
+    background-color: $dark-grey;
+    color: $white;
+  }
+}

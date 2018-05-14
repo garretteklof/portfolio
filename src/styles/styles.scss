@@ -1,0 +1,16 @@
+@import "./abstracts/variables";
+
+@import "./base/base";
+@import "./base/typography";
+@import "./base/utilities";
+
+@import "./components/stage-pagination";
+@import "./components/curtain";
+@import "./components/intro";
+@import "./components/about";
+@import "./components/skills";
+@import "./components/projects-list";
+@import "./components/project";
+@import "./components/contact";
+
+@import "./base/animations";

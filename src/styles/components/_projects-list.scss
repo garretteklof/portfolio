@@ -1,0 +1,53 @@
+.projects {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  &__heading {
+    color: $white;
+    font-family: "Londrina Solid", cursive;
+    font-size: 8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 4rem;
+
+    &--project {
+      margin-bottom: 1rem !important;
+      font-size: 5rem !important;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > * {
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+  }
+  &__project {
+    background-color: $white;
+    padding: 2rem;
+    border-radius: 50%;
+    box-shadow: 0 2rem 4rem rgba(black, 0.25);
+    transition: all 0.4s;
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-1rem);
+      box-shadow: 0 2rem 4rem rgba(black, 0.45);
+    }
+    &:active,
+    &:focus {
+      transform: translateY(0);
+      box-shadow: 0 2rem 4rem rgba(black, 0.25);
+    }
+    > img {
+      height: 9rem;
+      width: 9rem;
+    }
+  }
+}
