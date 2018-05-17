@@ -28,6 +28,8 @@ body {
 }
 
 .stage {
+  position: relative;
+  overflow: hidden;
   height: 100%;
   width: 100%;
 }
@@ -36,6 +38,7 @@ body {
   height: 100%;
   width: 100rem;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   padding: 6rem 0;
   &::-webkit-scrollbar {
     display: none;
