@@ -3,16 +3,10 @@
   grid-template-columns: min-content 1fr;
   align-items: center;
   grid-column-gap: 4rem;
-
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // &__grid {
-  //   display: grid;
-  //   grid-template-columns: min-content 1fr;
-  //   align-items: center;
-  //   grid-column-gap: 4rem;
-  // }
+  ::selection {
+    background-color: $dark-grey;
+    color: white;
+  }
   &__info {
     color: $dark-grey;
     display: flex;

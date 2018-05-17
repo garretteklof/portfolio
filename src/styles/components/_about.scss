@@ -13,6 +13,10 @@
   justify-items: center;
   padding-left: 1rem;
   padding-right: 1rem;
+  ::selection {
+    background-color: $white;
+    color: $blue;
+  }
   @media only screen and (max-width: $bp-1100) {
     width: 90rem;
   }

@@ -13,7 +13,12 @@
   grid-template-rows: min-content min-content;
   align-items: center;
   align-content: center;
-
+  justify-content: center;
+  justify-items: center;
+  ::selection {
+    background-color: $white;
+    color: $purple;
+  }
   @media only screen and (max-height: 25em) {
     align-content: initial;
   }
@@ -23,6 +28,7 @@
   }
 
   &__heading {
+    width: inherit;
     color: $white;
     font-family: "Londrina Solid", cursive;
     font-size: 8rem;

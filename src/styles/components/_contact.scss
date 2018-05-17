@@ -3,6 +3,10 @@
   grid-template-columns: min-content;
   justify-content: center;
   align-content: center;
+  ::selection {
+    background-color: #f7f7ff;
+    color: $yellow;
+  }
   @media only screen and (max-height: 25em) {
     align-content: initial;
   }
