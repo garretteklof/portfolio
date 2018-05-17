@@ -9,9 +9,14 @@
 
   &--sticky {
     z-index: 2;
+    display: flex !important;
   }
   &--active {
     z-index: 1;
+    display: flex !important;
+  }
+  &--inactive {
+    display: none;
   }
   &--intro {
     background-color: $white;

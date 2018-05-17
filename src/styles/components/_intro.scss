@@ -1,13 +1,18 @@
 .intro {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: min-content 1fr;
   align-items: center;
-  &__grid {
-    display: grid;
-    grid-template-columns: min-content 1fr;
-    align-items: center;
-    grid-column-gap: 4rem;
-  }
+  grid-column-gap: 4rem;
+
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // &__grid {
+  //   display: grid;
+  //   grid-template-columns: min-content 1fr;
+  //   align-items: center;
+  //   grid-column-gap: 4rem;
+  // }
   &__info {
     color: $dark-grey;
     display: flex;

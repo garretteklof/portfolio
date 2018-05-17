@@ -8,20 +8,17 @@
 
 html {
   font-size: 62.5%;
-  /* TEMPORARY */
-  height: 100vh;
+  @media only screen and (max-width: $bp-650) {
+    font-size: 50%;
+  }
+  @media only screen and (max-width: $bp-300) {
+    font-size: 46.875%;
+  }
 }
 
 body {
   box-sizing: border-box;
   overflow: hidden;
-
-  /* TEMPORARY */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100%;
-  width: 100%;
   background-color: $white;
 }
 
@@ -30,12 +27,26 @@ body {
   width: 100vw;
 }
 
-.curtain > * {
-  height: calc(100% - 12rem);
-  width: 100rem;
-}
-
 .stage {
   height: 100%;
   width: 100%;
+}
+
+.curtain > * {
+  height: 100%;
+  width: 100rem;
+  overflow-y: scroll;
+  padding: 6rem 0;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* FIREFOX OVERFLOW PADDING HACK FOR MINIMUM SCREEN HEIGHTS */
+@-moz-document url-prefix() {
+  .curtain > *:after {
+    content: "";
+    display: block;
+    height: 6rem;
+  }
 }

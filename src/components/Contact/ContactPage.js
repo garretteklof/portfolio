@@ -7,7 +7,7 @@ const ContactPage = () => (
     <div className="contact__grid">
       <h1 className="contact__heading">Questions, Comments, Grave Concerns?</h1>
       <h4 className="contact__heading contact__heading--secondary">
-        Please, let's get in touch.
+        Let's get in touch.
       </h4>
       <div className="contact__social">
         <a

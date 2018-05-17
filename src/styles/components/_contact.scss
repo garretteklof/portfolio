@@ -1,30 +1,59 @@
 .contact {
-  display: flex;
+  display: grid;
+  grid-template-columns: min-content;
   justify-content: center;
-  align-items: center;
+  align-content: center;
+  @media only screen and (max-height: 25em) {
+    align-content: initial;
+  }
+  @media only screen and (max-height: 31.25em) and (max-width: $bp-1000) {
+    align-content: initial;
+  }
   &__grid {
     display: grid;
-    grid-template-rows: repeat(4, min-content);
-    background-color: $dark-grey;
-    padding: 2rem;
-    border-radius: 4px;
+    grid-template-rows: repeat(3, min-content);
     text-align: center;
+    width: 100rem;
+    @media only screen and (max-width: $bp-1000) {
+      width: 80rem;
+    }
+    @media only screen and (max-width: $bp-800) {
+      width: 60rem;
+    }
+    @media only screen and (max-width: $bp-600) {
+      width: 40rem;
+    }
+    @media only screen and (max-width: $bp-400) {
+      width: 30rem;
+    }
+    > * {
+      background-color: $dark-grey;
+    }
   }
 
   &__heading {
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
     color: #f7f7ff;
-    font-size: 4rem;
+    font-size: 6rem;
     text-transform: uppercase;
-    padding: 1rem;
+    padding: 2rem;
+    font-weight: 300;
     &--secondary {
-      font-size: 2.5rem;
+      border-radius: 0;
+      padding-top: 0;
+      font-size: 3.5rem;
+      border-bottom: 1rem solid $yellow;
     }
   }
   &__social {
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    padding: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
+    border-top: 1rem solid $yellow;
     &-box {
       &:not(:first-child) {
         margin-left: 1rem;

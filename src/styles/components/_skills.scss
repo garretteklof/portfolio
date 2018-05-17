@@ -1,39 +1,67 @@
+/* FIREFOX HACK FOR MINIMUM SCREEN HEIGHTS */
+@-moz-document url-prefix() {
+  .skills {
+    margin-top: 6rem;
+    @media only screen and (max-height: 34.375em) {
+      margin-top: 0;
+    }
+  }
+}
+
 .skills {
-  //background-color: blue;
-  display: flex;
-  justify-content: center;
-  //align-items: center;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: min-content min-content;
+  align-items: center;
+  align-content: center;
+  width: 70rem;
+  @media only screen and (max-height: 34.375em) {
+    align-content: initial;
+  }
+  @media only screen and (max-height: 50em) and (max-width: $bp-600) {
+    align-content: initial;
+  }
+  @media only screen and (max-width: $bp-400) {
+    width: 40rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  @media only screen and (max-width: $bp-300) {
+    width: 30rem;
+  }
+  &__wrap {
+    display: grid;
+    grid-template-columns: 1fr min-content 1fr;
+    grid-template-rows: repeat(3, min-content);
+    grid-column-gap: 3rem;
+    grid-row-gap: 3rem;
+    justify-items: center;
+    align-items: center;
+    @media only screen and (max-width: $bp-300) {
+      grid-column-gap: 1rem;
+    }
+  }
   &__heading {
+    grid-column: 1 / -1;
     color: $white;
     font-family: "Londrina Solid", cursive;
     font-size: 8rem;
     font-weight: 400;
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 2rem;
-  }
-  &__wrapper {
-    display: grid;
-    grid-template-columns: 1fr min-content 1fr;
-    grid-template-rows: repeat(2, min-content);
-    grid-column-gap: 3rem;
-    grid-row-gap: 3rem;
-    justify-items: center;
-    align-items: center;
   }
   &__type {
     grid-column: 2;
-    grid-row: 2;
     color: $white;
     font-size: 4rem;
     font-family: "Londrina Solid", cursive;
     font-weight: 300;
     white-space: nowrap;
     text-transform: uppercase;
+    @media only screen and (max-width: $bp-350) {
+      font-size: 3rem;
+    }
   }
   &__pagination {
-    grid-row: 2;
     background-color: $dark-grey;
     border-radius: 50%;
     height: 5rem;
@@ -43,6 +71,14 @@
     align-items: center;
     box-shadow: 0 1rem 2rem rgba(black, 0.2);
     transition: all 0.2s;
+    @media only screen and (max-width: $bp-600) {
+      height: 6rem;
+      width: 6rem;
+    }
+    @media only screen and (max-width: $bp-350) {
+      height: 4rem;
+      width: 4rem;
+    }
     &:hover {
       cursor: pointer;
       transform: translateY(-3px);
@@ -57,6 +93,14 @@
       fill: $white;
       height: 4rem;
       width: 4rem;
+      @media only screen and (max-width: $bp-600) {
+        height: 5rem;
+        width: 5rem;
+      }
+      @media only screen and (max-width: $bp-350) {
+        height: 3rem;
+        width: 3rem;
+      }
     }
     &--left {
       grid-column: 1;
@@ -69,7 +113,6 @@
   }
   &__grid {
     grid-column: 1 / -1;
-    grid-row: 1;
     display: grid;
     grid-template-columns: repeat(4, min-content);
     grid-column-gap: 2rem;
@@ -77,6 +120,12 @@
     justify-content: center;
     align-items: center;
     min-height: 23rem;
+    @media only screen and (max-width: $bp-600) {
+      grid-template-columns: repeat(2, min-content);
+    }
+    @media only screen and (max-width: $bp-300) {
+      grid-column-gap: 0;
+    }
   }
   &__skill {
     background-color: $white;
@@ -86,6 +135,10 @@
     > img {
       height: 4rem;
       width: 4rem;
+      @media only screen and (max-width: $bp-350) {
+        height: 3rem;
+        width: 3rem;
+      }
     }
   }
   &__stars {
@@ -95,6 +148,10 @@
       fill: $star-yellow;
       height: 4rem;
       width: 4rem;
+      @media only screen and (max-width: $bp-350) {
+        height: 3rem;
+        width: 3rem;
+      }
     }
   }
 }

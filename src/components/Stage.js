@@ -259,17 +259,38 @@ export default class Stage extends React.Component {
     switch (step) {
       case 0:
         classes["intro"].push("curtain--active");
+        classes["about"].push("curtain--inactive");
+        classes["skills"].push("curtain--inactive");
+        classes["projects"].push("curtain--inactive");
+        classes["contact"].push("curtain--inactive");
+
         break;
       case 1:
+        classes["intro"].push("curtain--inactive");
         classes["about"].push("curtain--active");
+        classes["skills"].push("curtain--inactive");
+        classes["projects"].push("curtain--inactive");
+        classes["contact"].push("curtain--inactive");
         break;
       case 2:
+        classes["intro"].push("curtain--inactive");
+        classes["about"].push("curtain--inactive");
         classes["skills"].push("curtain--active");
+        classes["projects"].push("curtain--inactive");
+        classes["contact"].push("curtain--inactive");
         break;
       case 3:
+        classes["intro"].push("curtain--inactive");
+        classes["about"].push("curtain--inactive");
+        classes["skills"].push("curtain--inactive");
         classes["projects"].push("curtain--active");
+        classes["contact"].push("curtain--inactive");
         break;
       case 4:
+        classes["intro"].push("curtain--inactive");
+        classes["about"].push("curtain--inactive");
+        classes["skills"].push("curtain--inactive");
+        classes["projects"].push("curtain--inactive");
         classes["contact"].push("curtain--active");
     }
     return classes[curtain].join(" ");

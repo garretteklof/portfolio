@@ -250,8 +250,9 @@ export default class SkillsPage extends React.Component {
     const { step } = this.state;
     return (
       <section className="skills">
-        <h1 className="skills__heading">Skills</h1>
-        <div className="skills__wrapper">
+        <div className="skills__wrap">
+          <h1 className="skills__heading">Skills</h1>
+          {this.showSkillsGrid()}
           <div
             className={`skills__pagination skills__pagination--left ${
               step === 0 ? "u-hide--collapse" : ""
@@ -260,6 +261,7 @@ export default class SkillsPage extends React.Component {
           >
             <Icon icon={"arrow-left"} />
           </div>
+          <p className="skills__type">{this.showSkillsType()}</p>
           <div
             className={`skills__pagination skills__pagination--right ${
               step === 2 ? "u-hide--collapse" : ""
@@ -268,8 +270,6 @@ export default class SkillsPage extends React.Component {
           >
             <Icon icon={"arrow-right"} />
           </div>
-          <p className="skills__type">{this.showSkillsType()}</p>
-          {this.showSkillsGrid()}
         </div>
       </section>
     );

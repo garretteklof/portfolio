@@ -95,14 +95,13 @@ export default class ProjectsPage extends React.Component {
 
   render() {
     return (
-      <section className="projects">
-        <h1
-          className={`projects__heading ${
-            this.state.project !== "" ? "projects__heading--project" : ""
-          }`}
-          onClick={() => this.setState({ project: "" })}
-        >
-          Projects
+      <section
+        className={`projects ${
+          this.state.project !== "" ? "projects--project" : ""
+        }`}
+      >
+        <h1 className="projects__heading">
+          <span onClick={() => this.setState({ project: "" })}>Projects</span>
         </h1>
 
         {this.switchProjectFrames()}

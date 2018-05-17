@@ -3,6 +3,7 @@
 .a-raise-curtain {
   animation: raise-curtain 0.8s;
   z-index: 3;
+  display: flex !important;
   > section {
     animation: fade-in 1.2s;
   }
@@ -11,6 +12,7 @@
   top: 0;
   animation: lower-curtain 0.8s;
   z-index: 3;
+  display: flex !important;
   > section {
     animation: fade-in 1.2s;
   }
