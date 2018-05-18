@@ -1,5 +1,6 @@
 import React from "react";
 import update from "immutability-helper";
+import MediaQuery from "react-responsive";
 
 import IntroCurtain from "./Intro/IntroCurtain";
 import AboutCurtain from "./About/AboutCurtain";
@@ -237,9 +238,9 @@ export default class Stage extends React.Component {
       }, 800);
     }
   };
-
   setCurtainClasses = curtain => {
     const { step } = this.state;
+
     let classes = {
       intro: [],
       about: [],
@@ -247,8 +248,14 @@ export default class Stage extends React.Component {
       projects: [],
       contact: []
     };
+
     classes[curtain].push("curtain");
     classes[curtain].push(`curtain--${curtain}`);
+
+    const mobile = window.matchMedia("(max-width: 37.5em)");
+    if (mobile.matches) {
+      return classes[curtain].join(" ");
+    }
     if (this.state.raiseCurtain[curtain]) {
       classes[curtain].push("a-raise-curtain");
     } else if (this.state.lowerCurtain[curtain]) {
@@ -317,22 +324,39 @@ export default class Stage extends React.Component {
     }
     return classes[position].join(" ");
   };
-
   render() {
     const props = { classes: this.setCurtainClasses };
     return (
-      <main className="stage">
-        <IntroCurtain {...props} />
-        <AboutCurtain {...props} />
-        <SkillsCurtain {...props} />
-        <ProjectsCurtain {...props} />
-        <ContactCurtain {...props} />
-        <StagePagination
-          forward={this.stepForward}
-          backward={this.stepBackward}
-          classes={this.setPaginationClasses}
-        />
-      </main>
+      <MediaQuery maxWidth={"37.5em"}>
+        {matches => {
+          if (matches) {
+            return (
+              <main className="stage">
+                <IntroCurtain {...props} />
+                <AboutCurtain {...props} />
+                <SkillsCurtain {...props} />
+                <ProjectsCurtain {...props} />
+                <ContactCurtain {...props} />
+              </main>
+            );
+          } else {
+            return (
+              <main className="stage">
+                <IntroCurtain {...props} />
+                <AboutCurtain {...props} />
+                <SkillsCurtain {...props} />
+                <ProjectsCurtain {...props} />
+                <ContactCurtain {...props} />
+                <StagePagination
+                  forward={this.stepForward}
+                  backward={this.stepBackward}
+                  classes={this.setPaginationClasses}
+                />
+              </main>
+            );
+          }
+        }}
+      </MediaQuery>
     );
   }
 }

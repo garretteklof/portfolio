@@ -1,6 +1,9 @@
 .stage-pagination {
   height: 100%;
   width: 100%;
+  @media only screen and (max-width: $bp-600) {
+    display: none;
+  }
 }
 
 .toggle {

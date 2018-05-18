@@ -20,11 +20,17 @@ body {
   box-sizing: border-box;
   overflow: hidden;
   background-color: $white;
+  @media only screen and (max-width: $bp-600) {
+    overflow-y: visible;
+  }
 }
 
 .container {
   height: 100vh;
   width: 100vw;
+  @media only screen and (max-width: $bp-600) {
+    height: 100%;
+  }
 }
 
 .stage {
@@ -32,6 +38,9 @@ body {
   overflow: hidden;
   height: 100%;
   width: 100%;
+  @media only screen and (max-width: $bp-600) {
+    overflow-y: visible;
+  }
 }
 
 .curtain > * {
@@ -42,6 +51,9 @@ body {
   padding: 6rem 0;
   &::-webkit-scrollbar {
     display: none;
+  }
+  @media only screen and (max-width: $bp-600) {
+    overflow-y: visible;
   }
 }
 

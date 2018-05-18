@@ -1,9 +1,12 @@
 .intro {
   display: grid;
-  grid-template-columns: min-content 1fr;
+  grid-template-rows: 1fr;
   align-items: center;
-  grid-column-gap: 4rem;
-  display: none;
+  justify-items: center;
+  justify-content: center;
+  grid-row-gap: 2rem;
+  @media only screen and (max-width: $bp-600) {
+  }
   ::selection {
     background-color: $dark-grey;
     color: white;
@@ -14,27 +17,47 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    > *:not(:last-child) {
-      margin-bottom: 1.5rem;
+  }
+  &__photo {
+    height: auto;
+    width: 30rem;
+    @media only screen and (max-width: $bp-300) {
+      width: 25rem;
     }
   }
   &__heading {
+    color: $dark-grey;
     font-size: 8rem;
     font-weight: 300;
     text-transform: capitalize;
-    border-bottom: 1rem solid $dark-grey;
+    border-top: 1rem solid $dark-grey;
+    @media only screen and (max-width: $bp-350) {
+      font-size: 6rem;
+    }
   }
   &__subheading {
-    font-size: 2.25rem;
+    font-size: 2rem;
     text-transform: uppercase;
     font-weight: 300;
+    @media only screen and (max-width: $bp-300) {
+      font-size: 1.5rem;
+    }
   }
   &__social {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    > *:not(:last-child) {
-      margin-right: 1rem;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    height: 100vh;
+    left: 1rem;
+    top: 0;
+    @media only screen and (max-width: $bp-600) {
+      left: auto;
+      top: auto;
+      position: relative;
+      height: 100%;
+      width: 100%;
+      flex-direction: row;
     }
     &-box {
       padding: 1.5rem;
@@ -42,6 +65,9 @@
       background-color: $dark-grey;
       box-shadow: 0 1rem 2rem rgba(black, 0.2);
       transition: all 0.4s;
+      @media only screen and (max-width: $bp-300) {
+        padding: 1rem;
+      }
       &:hover {
         transform: translateY(-4px);
         box-shadow: 0 1rem 2rem rgba(black, 0.4);
@@ -55,13 +81,11 @@
         height: 4rem;
         width: 4rem;
         fill: $white;
+        @media only screen and (max-width: $bp-300) {
+          height: 2.5rem;
+          width: 2.5rem;
+        }
       }
     }
-  }
-  &__photo {
-    height: 60rem;
-    width: 40rem;
-    background-color: $dark-grey;
-    color: $white;
   }
 }
