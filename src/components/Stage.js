@@ -238,9 +238,15 @@ export default class Stage extends React.Component {
       }, 800);
     }
   };
+
   setCurtainClasses = curtain => {
     const { step } = this.state;
-
+    const pageFilterer = currentPage =>
+      ["intro", "about", "skills", "projects", "contact"]
+        .filter(name => name !== currentPage)
+        .forEach(name => {
+          classes[name].push("curtain--inactive");
+        });
     let classes = {
       intro: [],
       about: [],
@@ -248,12 +254,10 @@ export default class Stage extends React.Component {
       projects: [],
       contact: []
     };
-
     classes[curtain].push("curtain");
     classes[curtain].push(`curtain--${curtain}`);
 
-    const mobile = window.matchMedia("(max-width: 37.5em)");
-    if (mobile.matches) {
+    if (window.matchMedia("(max-width: 37.5em)").matches) {
       return classes[curtain].join(" ");
     }
     if (this.state.raiseCurtain[curtain]) {
@@ -265,39 +269,23 @@ export default class Stage extends React.Component {
     }
     switch (step) {
       case 0:
+        pageFilterer("intro");
         classes["intro"].push("curtain--active");
-        classes["about"].push("curtain--inactive");
-        classes["skills"].push("curtain--inactive");
-        classes["projects"].push("curtain--inactive");
-        classes["contact"].push("curtain--inactive");
-
         break;
       case 1:
-        classes["intro"].push("curtain--inactive");
+        pageFilterer("about");
         classes["about"].push("curtain--active");
-        classes["skills"].push("curtain--inactive");
-        classes["projects"].push("curtain--inactive");
-        classes["contact"].push("curtain--inactive");
         break;
       case 2:
-        classes["intro"].push("curtain--inactive");
-        classes["about"].push("curtain--inactive");
+        pageFilterer("skills");
         classes["skills"].push("curtain--active");
-        classes["projects"].push("curtain--inactive");
-        classes["contact"].push("curtain--inactive");
         break;
       case 3:
-        classes["intro"].push("curtain--inactive");
-        classes["about"].push("curtain--inactive");
-        classes["skills"].push("curtain--inactive");
+        pageFilterer("projects");
         classes["projects"].push("curtain--active");
-        classes["contact"].push("curtain--inactive");
         break;
       case 4:
-        classes["intro"].push("curtain--inactive");
-        classes["about"].push("curtain--inactive");
-        classes["skills"].push("curtain--inactive");
-        classes["projects"].push("curtain--inactive");
+        pageFilterer("contact");
         classes["contact"].push("curtain--active");
     }
     return classes[curtain].join(" ");
@@ -324,6 +312,7 @@ export default class Stage extends React.Component {
     }
     return classes[position].join(" ");
   };
+
   render() {
     const props = { classes: this.setCurtainClasses };
     return (

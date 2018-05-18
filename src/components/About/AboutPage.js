@@ -17,19 +17,18 @@ const AboutPage = () => (
       <p>
         I never did finish it - the next, latest, greatest, multi-million dollar
         social network - but I did end up learning quite a bit about web
-        development along the way. From WordPress CMS, to Ruby, to hacking
-        through Bootstrap templates and the newest, trendiest, front-end
+        development in the process. From a WordPress CMS, to Ruby, to hacking my
+        way through Bootstrap templates and the newest, trendiest, front-end
         frameworks, I slowly but surely began to transmogrify into a real,
         living, breathing, web aficionado.
       </p>
 
       <p>
-        Today, of course, I'm much more polished. I take great pride in writing
-        sensible and maintainable code, and I very much prescribe to the
-        philosphy that cobbling together third-party libraries is, usually,
-        never the answer. I love to take an idea, and nurture it from concept to
-        completion. Functional programming is my forte, and beautiful, visceral,
-        user experiences, my everlasting quest.
+        As a developer, I take great pride in writing code that's both sensible
+        and maintainable, prescribing to the philosophy that cobbling together
+        third-party libraries is, almost, never the answer. I love big ideas -
+        the more grandiose, the better - and the more beautiful, and visceral,
+        and veritable the user's experience, the better, too.
       </p>
     </div>
     <img
