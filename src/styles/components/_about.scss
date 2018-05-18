@@ -31,11 +31,14 @@
   @media only screen and (max-width: $bp-650) {
     width: 50rem;
   }
+  @media only screen and (max-width: $bp-600) {
+    padding-top: 2rem;
+  }
   @media only screen and (max-width: $bp-500) {
     width: 45rem;
   }
   @media only screen and (max-width: $bp-400) {
-    width: 40rem;
+    width: 35rem;
   }
   @media only screen and (max-width: $bp-300) {
     width: 25rem;
@@ -138,7 +141,7 @@
       order: -1;
       height: 40rem;
     }
-    @media only screen and (max-width: $bp-500) {
+    @media only screen and (max-width: $bp-300) {
       height: 30rem;
     }
   }
