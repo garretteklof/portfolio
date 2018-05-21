@@ -44,6 +44,14 @@
   animation: fade-in 0.8s;
 }
 
+.a-project-fade {
+  > * {
+    animation: fade-in 1s;
+  }
+  .project__screenshot {
+    animation: screenshot-fade-in 1s;
+  }
+}
 /* KEYFRAMES */
 
 @keyframes raise-curtain {
@@ -69,6 +77,20 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes screenshot-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 

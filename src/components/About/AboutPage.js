@@ -25,10 +25,10 @@ const AboutPage = () => (
 
       <p>
         As a developer, I take great pride in writing code that's both sensible
-        and maintainable, prescribing to the philosophy that cobbling together
-        third-party libraries is, almost, never the answer. I love big ideas -
-        the more grandiose, the better - and the more beautiful, and visceral,
-        and veritable the user's experience, the better, too.
+        and maintainable, prescribing to the philosophy that simply cobbling
+        together third-party libraries is, almost, never the answer. I love big
+        ideas - the more grandiose, the better - and the more beautiful, and
+        visceral, and veritable the user's experience, the better, too.
       </p>
     </div>
     <img

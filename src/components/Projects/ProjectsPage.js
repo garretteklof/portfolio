@@ -24,17 +24,34 @@ export default class ProjectsPage extends React.Component {
   };
 
   setProjectState = project => {
+    const clearFade = () =>
+      setTimeout(() => this.setState({ fadeIn: false }), 1000);
     switch (project) {
       case "aliveberry":
-        return this.setState(() => ({ project: "aliveberry" }));
+        return this.setState(
+          () => ({ project: "aliveberry", fadeIn: true }),
+          () => clearFade()
+        );
       case "carpi":
-        return this.setState(() => ({ project: "carpi" }));
+        return this.setState(
+          () => ({ project: "carpi", fadeIn: true }),
+          () => clearFade()
+        );
       case "skyguy":
-        return this.setState(() => ({ project: "skyguy" }));
+        return this.setState(
+          () => ({ project: "skyguy", fadeIn: true }),
+          () => clearFade()
+        );
       case "chatterbot":
-        return this.setState(() => ({ project: "chatterbot" }));
+        return this.setState(
+          () => ({ project: "chatterbot", fadeIn: true }),
+          () => clearFade()
+        );
       case "forwird":
-        return this.setState(() => ({ project: "forwird" }));
+        return this.setState(
+          () => ({ project: "forwird", fadeIn: true }),
+          () => clearFade()
+        );
       default:
         return this.setState({ project: "" });
     }
@@ -65,6 +82,7 @@ export default class ProjectsPage extends React.Component {
           "An overly ambitious productivity management application aimed to help us visualize how we use our time on a day-to-day basis. Graph out your day, adding or deleting activities seamlessly. Easily pick / sort / filter through dates, and even search / combine dates by a specific activity. Login with your Google account, and witness the lightning fast power of Redux & Firebase!";
         tech = this.buildTech(["react", "redux", "firebase", "bulma"]);
         heroku = "https://carpidiem.herokuapp.com/";
+
         break;
       case "skyguy":
         description =
@@ -76,12 +94,14 @@ export default class ProjectsPage extends React.Component {
           "google-developers"
         ]);
         heroku = "https://skyguy.herokuapp.com/";
+
         break;
       case "chatterbot":
         description =
           '"hi -- i am chatterbot -- i am a very inornate, noncomplex chat-room application designed to be a sneak peek into the strength of the fastest and most reliable real-time engine, socket.io -- pick a username, any username -- choose a room, any room -- and have your friends join the same room -- and we shall have a real-time chat -- you can even send your location like Khalid -- bye"';
         tech = this.buildTech(["node", "socketio", "jquery"]);
         heroku = "https://iamchatterbot.herokuapp.com/";
+
         break;
       case "forwird":
         description =
@@ -90,7 +110,13 @@ export default class ProjectsPage extends React.Component {
         heroku = "https://forwird.herokuapp.com/";
     }
     const props = { name, description, tech, nav, heroku };
-    return <Project setProjectState={this.setProjectState} {...props} />;
+    return (
+      <Project
+        setProjectState={this.setProjectState}
+        fadeIn={this.state.fadeIn}
+        {...props}
+      />
+    );
   };
 
   render() {

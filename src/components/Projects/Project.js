@@ -2,8 +2,16 @@ import React from "react";
 
 import Icon from "../SpriteIcon";
 
-const Project = ({ name, description, tech, nav, heroku, setProjectState }) => (
-  <div className="project__grid">
+const Project = ({
+  name,
+  description,
+  tech,
+  nav,
+  heroku,
+  setProjectState,
+  fadeIn
+}) => (
+  <div className={`project__grid ${fadeIn ? "a-project-fade" : ""}`}>
     <div className="project__nav">
       {nav.map((project, i) => (
         <div
