@@ -2,8 +2,8 @@ import React from "react";
 
 import ContactPage from "./ContactPage";
 
-const ContactCurtain = ({ classes }) => (
-  <div className={classes("contact")}>
+const ContactCurtain = ({ classes, contact }) => (
+  <div className={classes("contact")} ref={contact}>
     <ContactPage />
   </div>
 );

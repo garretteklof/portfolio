@@ -54,6 +54,7 @@ body {
   }
   @media only screen and (max-width: $bp-600) {
     overflow-y: visible;
+    opacity: 0;
   }
 }
 

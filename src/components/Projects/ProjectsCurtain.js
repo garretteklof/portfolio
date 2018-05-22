@@ -2,8 +2,8 @@ import React from "react";
 
 import ProjectsPage from "./ProjectsPage";
 
-const ProjectsCurtain = ({ classes }) => (
-  <div className={classes("projects")}>
+const ProjectsCurtain = ({ classes, projects }) => (
+  <div className={classes("projects")} ref={projects}>
     <ProjectsPage />
   </div>
 );

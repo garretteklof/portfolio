@@ -52,6 +52,13 @@
     animation: screenshot-fade-in 1s;
   }
 }
+
+.a-scroll-in-curtain {
+  > * {
+    animation: scroll-in-curtain 0.8s;
+    opacity: 1;
+  }
+}
 /* KEYFRAMES */
 
 @keyframes raise-curtain {
@@ -133,5 +140,16 @@
 
   100% {
     transform: translate(-50%, calc(6rem - 100vh));
+  }
+}
+
+@keyframes scroll-in-curtain {
+  0% {
+    transform: translateY(20rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

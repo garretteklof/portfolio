@@ -11,34 +11,79 @@ import ContactCurtain from "./Contact/ContactCurtain";
 import StagePagination from "./StagePagination";
 
 export default class Stage extends React.Component {
-  state = {
-    step: 0,
-    showTopToggle: false,
-    showBottomToggle: true,
-    animateTopToggle: false,
-    animateBottomToggle: false,
-    enterTopToggle: false,
-    enterBottomToggle: true,
-    raiseCurtain: {
-      intro: false,
-      about: false,
-      skills: false,
-      projects: false,
-      contact: false
-    },
-    lowerCurtain: {
-      intro: false,
-      about: false,
-      skills: false,
-      projects: false,
-      contact: false
-    },
-    stickyCurtain: {
-      intro: false,
-      about: false,
-      skills: false,
-      projects: false,
-      contact: false
+  constructor(props) {
+    super(props);
+    this.aboutNode = React.createRef();
+    this.skillsNode = React.createRef();
+    this.projectsNode = React.createRef();
+    this.contactNode = React.createRef();
+    this.state = {
+      step: 0,
+      showTopToggle: false,
+      showBottomToggle: true,
+      animateTopToggle: false,
+      animateBottomToggle: false,
+      enterTopToggle: false,
+      enterBottomToggle: true,
+      raiseCurtain: {
+        intro: false,
+        about: false,
+        skills: false,
+        projects: false,
+        contact: false
+      },
+      lowerCurtain: {
+        intro: false,
+        about: false,
+        skills: false,
+        projects: false,
+        contact: false
+      },
+      stickyCurtain: {
+        intro: false,
+        about: false,
+        skills: false,
+        projects: false,
+        contact: false
+      },
+      scrolled: {
+        intro: true,
+        about: false,
+        skills: false,
+        projects: false,
+        contact: false
+      }
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.animateMobileScroll);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.animateMobileScroll);
+  }
+
+  animateMobileScroll = () => {
+    if (window.matchMedia("(max-width: 37.5em)").matches) {
+      let scrolled;
+      if (window.scrollY > this.contactNode.current.offsetTop - 350) {
+        scrolled = update(this.state.scrolled, {
+          contact: { $set: true }
+        });
+      } else if (window.scrollY > this.projectsNode.current.offsetTop - 350) {
+        scrolled = update(this.state.scrolled, {
+          projects: { $set: true }
+        });
+      } else if (window.scrollY > this.skillsNode.current.offsetTop - 350) {
+        scrolled = update(this.state.scrolled, {
+          skills: { $set: true }
+        });
+      } else if (window.scrollY > this.aboutNode.current.offsetTop - 350) {
+        scrolled = update(this.state.scrolled, { about: { $set: true } });
+      } else {
+        scrolled = update(this.state.scrolled, { intro: { $set: true } });
+      }
+      this.setState(() => ({ scrolled }));
     }
   };
 
@@ -254,12 +299,17 @@ export default class Stage extends React.Component {
       projects: [],
       contact: []
     };
+
     classes[curtain].push("curtain");
     classes[curtain].push(`curtain--${curtain}`);
 
     if (window.matchMedia("(max-width: 37.5em)").matches) {
+      if (this.state.scrolled[curtain]) {
+        classes[curtain].push("a-scroll-in-curtain");
+      }
       return classes[curtain].join(" ");
     }
+
     if (this.state.raiseCurtain[curtain]) {
       classes[curtain].push("a-raise-curtain");
     } else if (this.state.lowerCurtain[curtain]) {
@@ -267,6 +317,7 @@ export default class Stage extends React.Component {
     } else if (this.state.stickyCurtain[curtain]) {
       classes[curtain].push("curtain--sticky");
     }
+
     switch (step) {
       case 0:
         pageFilterer("intro");
@@ -315,27 +366,33 @@ export default class Stage extends React.Component {
 
   render() {
     const props = { classes: this.setCurtainClasses };
+    const nodes = {
+      about: this.aboutNode,
+      skills: this.skillsNode,
+      projects: this.projectsNode,
+      contact: this.contactNode
+    };
     return (
       <MediaQuery maxWidth={"37.5em"}>
         {matches => {
           if (matches) {
             return (
               <main className="stage">
-                <IntroCurtain {...props} />
-                <AboutCurtain {...props} />
-                <SkillsCurtain {...props} />
-                <ProjectsCurtain {...props} />
-                <ContactCurtain {...props} />
+                <IntroCurtain {...props} {...nodes} />
+                <AboutCurtain {...props} {...nodes} />
+                <SkillsCurtain {...props} {...nodes} />
+                <ProjectsCurtain {...props} {...nodes} />
+                <ContactCurtain {...props} {...nodes} />
               </main>
             );
           } else {
             return (
               <main className="stage">
-                <IntroCurtain {...props} />
-                <AboutCurtain {...props} />
-                <SkillsCurtain {...props} />
-                <ProjectsCurtain {...props} />
-                <ContactCurtain {...props} />
+                <IntroCurtain {...props} {...nodes} />
+                <AboutCurtain {...props} {...nodes} />
+                <SkillsCurtain {...props} {...nodes} />
+                <ProjectsCurtain {...props} {...nodes} />
+                <ContactCurtain {...props} {...nodes} />
                 <StagePagination
                   forward={this.stepForward}
                   backward={this.stepBackward}
