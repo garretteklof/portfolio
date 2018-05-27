@@ -3,6 +3,8 @@ const webpack = require("webpack");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
+const BrotliPlugin = require("brotli-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -45,6 +47,13 @@ module.exports = {
         cache: true,
         parallel: true,
         sourceMap: true
+      }),
+      new BrotliPlugin({
+        asset: "[path].br[query]"
+      }),
+      new CompressionPlugin({
+        asset: "[path].gz[query]",
+        algorithm: "gzip"
       }),
       new OptimizeCSSAssetsPlugin({})
     ]

@@ -5,7 +5,6 @@
   "license": "MIT",
   "scripts": {
     "node": "./node_modules/nodemon/bin/nodemon.js server/server.js",
-    "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server --host 0.0.0.0",
     "start": "node server/server.js",
@@ -14,6 +13,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "express": "^4.16.2",
+    "express-static-gzip": "^0.3.2",
     "immutability-helper": "^2.7.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -30,6 +30,8 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "brotli-webpack-plugin": "^1.0.0",
+    "compression-webpack-plugin": "^1.1.11",
     "css-loader": "^0.28.9",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.7.2",
