@@ -86,9 +86,9 @@ export default class Stage extends React.Component {
   };
 
   handleKeyDown = e => {
-    if (e.keyCode === 38 && this.state.step !== 0) {
+    if (e.keyCode === 40 && this.state.step !== 0) {
       this.stepBackward();
-    } else if (e.keyCode === 40 && this.state.step !== 4) {
+    } else if (e.keyCode === 38 && this.state.step !== 4) {
       this.stepForward();
     }
   };
