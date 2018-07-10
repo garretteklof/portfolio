@@ -57,13 +57,51 @@ export default class Stage extends React.Component {
   }
 
   componentWillMount() {
+    window.addEventListener("keydown", this.throttle(this.handleKeyDown, 2000));
+    window.addEventListener("wheel", this.throttle(this.handleWheel, 2000));
     window.addEventListener("scroll", this.animateMobileScroll);
-    window.addEventListener("keydown", this.handleKeyDown);
   }
   componentWillUnmount() {
+    window.removeEventListener(
+      "keydown",
+      this.throttle(this.handleKeyDown, 2000)
+    );
+    window.removeEventListener("wheel", this.throttle(this.handleWheel, 2000));
     window.removeEventListener("scroll", this.animateMobileScroll);
-    window.removeEventListener("keydown", this.handleKeyDown);
   }
+
+  /* prevents excess wheel / keydown events  */
+
+  throttle = (callback, limit) => {
+    let wait = false;
+    return e => {
+      if (!wait) {
+        callback(e);
+        wait = true;
+        setTimeout(() => {
+          wait = false;
+        }, limit);
+      }
+    };
+  };
+
+  handleKeyDown = e => {
+    if (e.keyCode === 38 && this.state.step !== 0) {
+      this.stepBackward();
+    } else if (e.keyCode === 40 && this.state.step !== 4) {
+      this.stepForward();
+    }
+  };
+
+  handleWheel = e => {
+    if (!window.matchMedia("(max-width: 37.5em)").matches) {
+      if (e.deltaY < 0 && this.state.step !== 0) {
+        this.stepBackward();
+      } else if (e.deltaY > 0 && this.state.step !== 4) {
+        this.stepForward();
+      }
+    }
+  };
 
   animateMobileScroll = () => {
     if (window.matchMedia("(max-width: 37.5em)").matches) {
@@ -86,14 +124,6 @@ export default class Stage extends React.Component {
         scrolled = update(this.state.scrolled, { intro: { $set: true } });
       }
       this.setState(() => ({ scrolled }));
-    }
-  };
-
-  handleKeyDown = e => {
-    if (e.keyCode === 38 && this.state.step !== 0) {
-      this.stepBackward();
-    } else if (e.keyCode === 40 && this.state.step !== 4) {
-      this.stepForward();
     }
   };
 
