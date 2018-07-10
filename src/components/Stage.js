@@ -56,11 +56,13 @@ export default class Stage extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     window.addEventListener("scroll", this.animateMobileScroll);
+    window.addEventListener("keydown", this.handleKeyDown);
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this.animateMobileScroll);
+    window.removeEventListener("keydown", this.handleKeyDown);
   }
 
   animateMobileScroll = () => {
@@ -84,6 +86,14 @@ export default class Stage extends React.Component {
         scrolled = update(this.state.scrolled, { intro: { $set: true } });
       }
       this.setState(() => ({ scrolled }));
+    }
+  };
+
+  handleKeyDown = e => {
+    if (e.keyCode === 38 && this.state.step !== 0) {
+      this.stepBackward();
+    } else if (e.keyCode === 40 && this.state.step !== 4) {
+      this.stepForward();
     }
   };
 
