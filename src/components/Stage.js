@@ -58,7 +58,7 @@ export default class Stage extends React.Component {
 
   componentWillMount() {
     window.addEventListener("keydown", this.throttle(this.handleKeyDown, 2000));
-    window.addEventListener("wheel", this.throttle(this.handleWheel, 2000));
+    //window.addEventListener("wheel", this.throttle(this.handleWheel, 2000));
     window.addEventListener("scroll", this.animateMobileScroll);
   }
   componentWillUnmount() {
@@ -66,7 +66,7 @@ export default class Stage extends React.Component {
       "keydown",
       this.throttle(this.handleKeyDown, 2000)
     );
-    window.removeEventListener("wheel", this.throttle(this.handleWheel, 2000));
+    //window.removeEventListener("wheel", this.throttle(this.handleWheel, 2000));
     window.removeEventListener("scroll", this.animateMobileScroll);
   }
 
