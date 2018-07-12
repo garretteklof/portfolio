@@ -5,6 +5,21 @@ import Icon from "../SpriteIcon";
 export default class SkillsPage extends React.Component {
   state = { step: 0, fadeIn: false };
 
+  componentWillMount() {
+    window.addEventListener("keydown", this.handleKeyDown);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("keydown", this.handleKeyDown);
+  }
+
+  handleKeyDown = e => {
+    if (e.keyCode === 37 && this.state.step !== 0) {
+      this.stepBackward();
+    } else if (e.keyCode === 39 && this.state.step !== 2) {
+      this.stepForward();
+    }
+  };
+
   stepForward = () => {
     if (this.state.step > 2) {
       return this.setState({ step: 2 });
@@ -14,6 +29,7 @@ export default class SkillsPage extends React.Component {
       () => setTimeout(() => this.setState({ fadeIn: false }), 1000)
     );
   };
+
   stepBackward = () => {
     if (this.state.step < 0) {
       return this.setState({ step: 0 });
