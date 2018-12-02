@@ -15,14 +15,14 @@ export default class SkillsPage extends React.Component {
   handleKeyDown = e => {
     if (e.keyCode === 37 && this.state.step !== 0) {
       this.stepBackward();
-    } else if (e.keyCode === 39 && this.state.step !== 2) {
+    } else if (e.keyCode === 39 && this.state.step !== 4) {
       this.stepForward();
     }
   };
 
   stepForward = () => {
-    if (this.state.step > 2) {
-      return this.setState({ step: 2 });
+    if (this.state.step > 4) {
+      return this.setState({ step: 4 });
     }
     this.setState(
       ({ step }) => ({ step: step + 1, fadeIn: true }),
@@ -82,7 +82,7 @@ export default class SkillsPage extends React.Component {
               <Icon icon={"star"} />
               <Icon icon={"star"} />
               <Icon icon={"star"} />
-              <Icon icon={"star-outlined"} />
+              <Icon icon={"star"} />
             </span>
             <div className="skills__skill">
               <img
@@ -96,7 +96,7 @@ export default class SkillsPage extends React.Component {
               <Icon icon={"star"} />
               <Icon icon={"star"} />
               <Icon icon={"star"} />
-              <Icon icon={"star-outlined"} />
+              <Icon icon={"star"} />
             </span>
             <div className="skills__skill">
               <img
@@ -114,6 +114,73 @@ export default class SkillsPage extends React.Component {
             </span>
             <div className="skills__skill">
               <img
+                src="/images/tech-logos/leaflet.svg"
+                alt="leaflet"
+                title="Leaflet"
+              />
+            </div>
+            <span className="skills__stars">
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star-outlined"} />
+            </span>
+          </div>
+        );
+      case 1:
+        return (
+          <div className={`skills__grid ${fadeIn ? "a-fade-in" : ""}`}>
+            <div className="skills__skill">
+              <img
+                src="/images/tech-logos/styled.png"
+                alt="styled-components"
+                title="styled-components"
+              />
+            </div>
+            <span className="skills__stars">
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+            </span>
+            <div className="skills__skill">
+              <img
+                src="/images/tech-logos/material-ui.svg"
+                alt="material-ui"
+                title="Material-UI"
+              />
+            </div>
+            <span className="skills__stars">
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+            </span>
+            <div className="skills__skill">
+              <img src="/images/tech-logos/sass.svg" alt="Sass" title="Sass" />
+            </div>
+            <span className="skills__stars">
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+            </span>
+            <div className="skills__skill">
+              <img src="/images/tech-logos/less.svg" alt="Less" title="Less" />
+            </div>
+            <span className="skills__stars">
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+            </span>
+            <div className="skills__skill">
+              <img
                 src="/images/tech-logos/firebase.svg"
                 alt="firebase"
                 title="Firebase"
@@ -126,9 +193,23 @@ export default class SkillsPage extends React.Component {
               <Icon icon={"star-outlined"} />
               <Icon icon={"star-outlined"} />
             </span>
+            <div className="skills__skill">
+              <img
+                src="/images/tech-logos/vue.svg"
+                alt="Vue.js"
+                title="Vue.js"
+              />
+            </div>
+            <span className="skills__stars">
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star-outlined"} />
+              <Icon icon={"star-outlined"} />
+              <Icon icon={"star-outlined"} />
+            </span>
           </div>
         );
-      case 1:
+      case 2:
         return (
           <div className={`skills__grid ${fadeIn ? "a-fade-in" : ""}`}>
             <div className="skills__skill">
@@ -139,7 +220,7 @@ export default class SkillsPage extends React.Component {
               <Icon icon={"star"} />
               <Icon icon={"star"} />
               <Icon icon={"star"} />
-              <Icon icon={"star-outlined"} />
+              <Icon icon={"star"} />
             </span>
             <div className="skills__skill">
               <img
@@ -153,6 +234,34 @@ export default class SkillsPage extends React.Component {
               <Icon icon={"star"} />
               <Icon icon={"star"} />
               <Icon icon={"star"} />
+              <Icon icon={"star"} />
+            </span>
+            <div className="skills__skill">
+              <img
+                src="/images/tech-logos/python.svg"
+                alt="Python"
+                title="Python"
+              />
+            </div>
+            <span className="skills__stars">
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star-outlined"} />
+              <Icon icon={"star-outlined"} />
+            </span>
+            <div className="skills__skill">
+              <img
+                src="/images/tech-logos/flask.svg"
+                alt="Flask"
+                title="Flask"
+              />
+            </div>
+            <span className="skills__stars">
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star-outlined"} />
               <Icon icon={"star-outlined"} />
             </span>
             <div className="skills__skill">
@@ -171,9 +280,9 @@ export default class SkillsPage extends React.Component {
             </span>
             <div className="skills__skill">
               <img
-                src="/images/tech-logos/socketio.svg"
-                alt="socket.io"
-                title="Socket.io"
+                src="/images/tech-logos/postgres.svg"
+                alt="PostgreSQL"
+                title="PostgreSQL"
               />
             </div>
             <span className="skills__stars">
@@ -181,6 +290,50 @@ export default class SkillsPage extends React.Component {
               <Icon icon={"star"} />
               <Icon icon={"star"} />
               <Icon icon={"star-outlined"} />
+              <Icon icon={"star-outlined"} />
+            </span>
+          </div>
+        );
+
+      case 3:
+        return (
+          <div className={`skills__grid ${fadeIn ? "a-fade-in" : ""}`}>
+            <div className="skills__skill">
+              <img
+                src="/images/tech-logos/webpack.svg"
+                alt="Webpack"
+                title="Webpack"
+              />
+            </div>
+            <span className="skills__stars">
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star-outlined"} />
+            </span>
+            <div className="skills__skill">
+              <img src="/images/tech-logos/gulp.svg" alt="Gulp" title="Gulp" />
+            </div>
+            <span className="skills__stars">
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star-outlined"} />
+            </span>
+            <div className="skills__skill">
+              <img
+                src="/images/tech-logos/babel.svg"
+                alt="Babel"
+                title="Babel"
+              />
+            </div>
+            <span className="skills__stars">
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
+              <Icon icon={"star"} />
               <Icon icon={"star-outlined"} />
             </span>
             <div className="skills__skill">
@@ -195,26 +348,11 @@ export default class SkillsPage extends React.Component {
               <Icon icon={"star"} />
               <Icon icon={"star"} />
               <Icon icon={"star"} />
-              <Icon icon={"star-outlined"} />
-            </span>
-            <div className="skills__skill">
-              <img
-                src="/images/tech-logos/google-developers.svg"
-                alt="Google Developers"
-                title="Google Developers"
-              />
-            </div>
-            <span className="skills__stars">
               <Icon icon={"star"} />
-              <Icon icon={"star"} />
-              <Icon icon={"star"} />
-              <Icon icon={"star-outlined"} />
-              <Icon icon={"star-outlined"} />
             </span>
           </div>
         );
-
-      case 2:
+      case 4:
         return (
           <div className={`skills__grid ${fadeIn ? "a-fade-in" : ""}`}>
             <div className="skills__skill">
@@ -228,7 +366,7 @@ export default class SkillsPage extends React.Component {
               <Icon icon={"star"} />
               <Icon icon={"star"} />
               <Icon icon={"star"} />
-              <Icon icon={"star-outlined"} />
+              <Icon icon={"star"} />
               <Icon icon={"star-outlined"} />
             </span>
             <div className="skills__skill">
@@ -256,8 +394,12 @@ export default class SkillsPage extends React.Component {
       case 0:
         return "Front End";
       case 1:
-        return "Back End";
+        return "Front End";
       case 2:
+        return "Back End";
+      case 3:
+        return "Build";
+      case 4:
         return "Design";
     }
   };
@@ -266,8 +408,11 @@ export default class SkillsPage extends React.Component {
     const { step } = this.state;
     return (
       <section className="skills">
+        <p className="skills__disclaimer">
+          *** by no means exhaustive - if questions, please ask!
+        </p>
         <div className="skills__wrap">
-          <h1 className="skills__heading">Skills</h1>
+          <h1 className="skills__heading">Toolbox</h1>
           {this.showSkillsGrid()}
           <div
             className={`skills__pagination skills__pagination--left ${
@@ -280,7 +425,7 @@ export default class SkillsPage extends React.Component {
           <p className="skills__type">{this.showSkillsType()}</p>
           <div
             className={`skills__pagination skills__pagination--right ${
-              step === 2 ? "u-hide--collapse" : ""
+              step === 4 ? "u-hide--collapse" : ""
             }`}
             onClick={this.stepForward}
           >
