@@ -25,7 +25,7 @@ const IntroPage = () => (
       </a>
       <a
         className="intro__social-box"
-        href="mailto:garrett.eklof@gmail.com"
+        href="mailto:garrett@leftside.design"
         target="_blank"
       >
         <Icon icon="mail" />
