@@ -13,6 +13,10 @@ app.use(
   })
 );
 
+app.get("/*", (req, res) => {
+  res.redirect("/");
+});
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(publicPath, "index.html"));
 });
