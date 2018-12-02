@@ -4,6 +4,12 @@ import Icon from "../SpriteIcon";
 
 const IntroPage = () => (
   <section className="intro">
+    <div className="leftside">
+      <h4>I started a company!</h4>
+      <a href="https://leftside.design/" target="_blank">
+        <img src="images/intro/turn-right.svg" alt="Go to Leftside" />
+      </a>
+    </div>
     <div className="intro__info">
       <img
         className="intro__photo"
