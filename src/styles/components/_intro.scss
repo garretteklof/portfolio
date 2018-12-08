@@ -92,8 +92,8 @@
 
 .leftside {
   position: absolute;
-  top: 5rem;
-  right: 4rem;
+  top: 0rem;
+  right: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,22 +107,29 @@
     width: auto;
     align-self: flex-end;
     transition: all 0.4s;
-    &:hover {
-      transform: translateX(4.5rem);
-      cursor: pointer;
-    }
+    transform: rotate(-180deg);
     @media only screen and (max-width: $bp-500) {
       height: 10rem;
     }
   }
+
   > h4 {
     font-size: 2rem;
     font-weight: 300;
     text-transform: uppercase;
-    transform: translateX(-6rem);
+    transform: translate(-15rem, 3rem);
+    transition: all 0.4s;
     @media only screen and (max-width: $bp-500) {
       font-size: 1.6rem;
       transform: translateX(-4rem);
     }
+  }
+  &:hover img {
+    transform: translate(0, 3rem);
+    cursor: pointer;
+  }
+
+  &:hover > h4 {
+    transform: translate(-7rem, 3rem);
   }
 }
