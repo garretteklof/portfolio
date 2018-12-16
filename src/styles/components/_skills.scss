@@ -32,14 +32,6 @@
   @media only screen and (max-width: $bp-300) {
     width: 30rem;
   }
-  &__disclaimer {
-    position: absolute;
-    bottom: 2rem;
-    left: 2rem;
-    color: $white;
-    font-size: 1.6rem;
-    max-width: 16rem;
-  }
   &__wrap {
     display: grid;
     grid-template-columns: 1fr min-content 1fr;
@@ -166,4 +158,16 @@
       }
     }
   }
+}
+
+.skills__disclaimer {
+  padding: 0;
+  overflow-y: hidden;
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  color: $white;
+  font-size: 1.6rem;
+  width: 16rem;
+  height: auto;
 }

@@ -408,9 +408,6 @@ export default class SkillsPage extends React.Component {
     const { step } = this.state;
     return (
       <section className="skills">
-        <p className="skills__disclaimer">
-          *** by no means exhaustive - if questions, please ask!
-        </p>
         <div className="skills__wrap">
           <h1 className="skills__heading">Toolbox</h1>
           {this.showSkillsGrid()}
