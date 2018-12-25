@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import App from "../components/App";
+import Main from "../components/Main";
 
 const AppRouter = () => (
   <Router>
     <Switch>
-      <Route path="/" component={App} exact={true} />
+      <Route path="/" component={Main} exact={true} />
     </Switch>
   </Router>
 );
