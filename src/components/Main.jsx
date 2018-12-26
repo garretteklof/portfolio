@@ -1,8 +1,21 @@
 import React from "react";
 import Icon from "./SpriteIcon";
-import { MainWrap as Wrap, BitMe, Who, SocialLink, Leftside } from "./styles";
+import {
+  MainWrap as Wrap,
+  BitMe,
+  Who,
+  SocialLink,
+  Leftside,
+  SkillsLink,
+  StarBox,
+  StarIcon,
+  StarBubble
+} from "./styles";
 
 export default class Main extends React.Component {
+  state = {
+    hasHovered: false
+  };
   render() {
     return (
       <Wrap>
@@ -27,6 +40,18 @@ export default class Main extends React.Component {
           >
             <Icon icon="linkedin" />
           </SocialLink>
+          <SkillsLink
+            onMouseOver={() => this.setState({ hasHovered: true })}
+            onClick={() => this.props.history.push("/toolbox")}
+            {...this.state}
+          >
+            Click Here To Explore Technological Competence
+            <span>👀</span>
+          </SkillsLink>
+          {/* <StarBox>
+            <StarBubble>Skills!</StarBubble>
+            <StarIcon icon="emoji-star" />
+          </StarBox> */}
         </Who>
         <BitMe src="images/me.svg" alt="garrett eklof" />
       </Wrap>

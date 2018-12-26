@@ -1,4 +1,6 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+import { bounce } from "react-animations";
+import Icon from "./SpriteIcon";
 
 const COLORS = {
   white: "#fefeff",
@@ -15,6 +17,7 @@ export const MainWrap = styled.main`
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr min-content;
+  overflow: hidden;
 `;
 
 export const BitMe = styled.img`
@@ -37,14 +40,15 @@ export const Who = styled.div`
   text-align: right;
   > h1 {
     grid-column: 1 / -1;
-    font-size: 12rem;
+    font-size: 14rem;
     font-weight: 300;
-    line-height: 11rem;
+    line-height: 12rem;
   }
   > p {
     grid-column: 1 / -1;
     font-size: 4rem;
     font-weight: 300;
+    padding-left: 14rem; /* force break sentence */
   }
 `;
 
@@ -91,7 +95,7 @@ export const Leftside = styled.div`
       margin: 0;
     }
     > svg {
-      transform: translate(-4rem, 0.5rem) rotate(0deg);
+      transform: translate(-4rem, 1rem) rotate(0deg);
       height: 12rem;
       width: 12rem;
     }
@@ -117,5 +121,86 @@ export const Leftside = styled.div`
     width: 8rem;
     transform: rotate(-90deg);
     transition: all 0.4s;
+  }
+`;
+
+export const SkillsLink = styled.div`
+  grid-column: 1 / -1;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-self: end;
+  font-size: 2rem;
+  font-family: "Londrina Solid", cursive;
+  font-weight: 300;
+  background: #f7f7f7;
+  color: #f7f7f7;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-align: center;
+  padding: 1rem 2rem;
+  transition: all 0.4s;
+  span {
+    position: absolute;
+    display: block;
+    bottom: -6rem;
+    left: 45%;
+    font-size: 5rem;
+    animation: 6s ${keyframes`${bounce}`} 3s infinite;
+  }
+  &:hover {
+    cursor: pointer;
+    color: #090909;
+    background: #ffe74c;
+    span {
+      display: none;
+    }
+  }
+  ${({ hasHovered }) =>
+    hasHovered &&
+    css`
+      color: #090909;
+      background: #ffe74c;
+      span {
+        display: none;
+      }
+    `}
+`;
+
+export const StarBox = styled.div`
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+`;
+
+export const StarIcon = styled(Icon)`
+  height: 10rem;
+  width: 10rem;
+`;
+
+export const StarBubble = styled.div`
+  position: relative;
+  background: #f7f7f7;
+  border-radius: 0.4em;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: #393e41;
+  font-family: "Londrina Solid", cursive;
+  font-size: 3rem;
+  transform: translate(4rem, -1rem);
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 60px solid transparent;
+    border-top-color: #f7f7f7;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -15px;
+    margin-bottom: -30px;
   }
 `;
