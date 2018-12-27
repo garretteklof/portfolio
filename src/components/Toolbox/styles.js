@@ -20,6 +20,12 @@ export const Wrap = styled.div`
   }
 `;
 
+const disappear = keyframes`
+  from { opacity: 1; }
+  99% { opacity: 1; }
+  to { opacity: 0;  }
+`;
+
 export const Header = styled.div`
   position: relative;
   > span {
@@ -48,6 +54,34 @@ export const Header = styled.div`
     right: 0;
     &:hover {
       cursor: pointer;
+    }
+  }
+  > aside {
+    opacity: 0;
+    animation: 2s ${disappear} 2s;
+    position: absolute;
+    right: 0;
+    transform: translateX(calc(100% + 1rem));
+    top: -6rem;
+    background: #fefeff;
+    border: 3px solid #fefeff;
+    border-radius: 0.4em;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: #393e41;
+    text-transform: uppercase;
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 0;
+      height: 0;
+      border: 1rem solid transparent;
+      border-right-color: #fefeff;
+      border-left: 0;
+      margin-top: -1rem;
+      margin-left: -1rem;
     }
   }
 `;
