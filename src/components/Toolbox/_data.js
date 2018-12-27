@@ -140,6 +140,11 @@ export default [
     tags: ["back end", "javascript"]
   },
   {
+    name: "styled-comps",
+    rating: "all-american",
+    tags: ["front end", "css", "javascript"]
+  },
+  {
     name: "vue",
     rating: "versed",
     tags: ["front end", "javascript"]
