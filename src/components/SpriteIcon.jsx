@@ -1,8 +1,8 @@
 import React from "react";
 import "../utils/icons.svg";
 
-const Icon = ({ icon, className }) => (
-  <svg className={className}>
+const Icon = ({ icon, ...rest }) => (
+  <svg {...rest}>
     <use xlinkHref={`#icons_${icon}`} />
   </svg>
 );

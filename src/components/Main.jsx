@@ -6,20 +6,31 @@ import {
   Who,
   SocialLink,
   Leftside,
-  SkillsLink,
-  StarBox,
-  StarIcon,
-  StarBubble
+  SkillsLink
 } from "./styles";
 
 export default class Main extends React.Component {
   state = {
-    hasHovered: false
+    hasHovered: {
+      leftside: false,
+      toolbox: false
+    }
   };
   render() {
+    const { hasHovered } = this.state;
+    const {
+      history: { push }
+    } = this.props;
     return (
       <Wrap>
-        <Leftside href="https://leftside.design" target="_blank">
+        <Leftside
+          onMouseOver={() =>
+            this.setState({
+              hasHovered: { ...hasHovered, leftside: true }
+            })
+          }
+          {...this.state}
+        >
           <a href="https://leftside.design" target="_blank">
             <Icon icon="leftside-arrow" />
           </a>
@@ -41,17 +52,17 @@ export default class Main extends React.Component {
             <Icon icon="linkedin" />
           </SocialLink>
           <SkillsLink
-            onMouseOver={() => this.setState({ hasHovered: true })}
-            onClick={() => this.props.history.push("/toolbox")}
+            onMouseOver={() =>
+              this.setState({
+                hasHovered: { ...hasHovered, toolbox: true }
+              })
+            }
+            onClick={() => push("/toolbox")}
             {...this.state}
           >
             Click Here To Explore Technological Competence
             <span>👀</span>
           </SkillsLink>
-          {/* <StarBox>
-            <StarBubble>Skills!</StarBubble>
-            <StarIcon icon="emoji-star" />
-          </StarBox> */}
         </Who>
         <BitMe src="images/me.svg" alt="garrett eklof" />
       </Wrap>

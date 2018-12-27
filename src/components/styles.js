@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
-import { bounce } from "react-animations";
+import { bounce, fadeInDown } from "react-animations";
 import Icon from "./SpriteIcon";
 
 const COLORS = {
@@ -18,6 +18,7 @@ export const MainWrap = styled.main`
   display: grid;
   grid-template-columns: 1fr min-content;
   overflow: hidden;
+  animation: 0.2s ${keyframes`${fadeInDown}`};
 `;
 
 export const BitMe = styled.img`
@@ -85,9 +86,6 @@ export const Leftside = styled.div`
   z-index: 1;
   text-decoration: none;
   color: #090909;
-  @media only screen and (max-height: 34.375em) {
-    top: -2rem;
-  }
   a:hover {
     ~ p {
       transform: translate(-7.5rem, 2rem);
@@ -98,14 +96,6 @@ export const Leftside = styled.div`
       transform: translate(-4rem, 1rem) rotate(0deg);
       height: 12rem;
       width: 12rem;
-    }
-    @media only screen and (max-height: 34.375em) {
-      ~ p {
-        transform: none;
-      }
-      > svg {
-        transform: rotate(-90deg);
-      }
     }
   }
   p {
@@ -121,6 +111,24 @@ export const Leftside = styled.div`
     width: 8rem;
     transform: rotate(-90deg);
     transition: all 0.4s;
+  }
+
+  ${({ hasHovered: { leftside } }) =>
+    leftside &&
+    css`
+      > p {
+        transform: translate(-7.5rem, 2rem);
+        width: 0rem;
+        margin: 0;
+      }
+      > a > svg {
+        transform: translate(-4rem, 1rem) rotate(0deg);
+        height: 12rem;
+        width: 12rem;
+      }
+    `}
+
+  @media only screen and (max-height: 34.375em) {
   }
 `;
 
@@ -157,10 +165,10 @@ export const SkillsLink = styled.div`
       display: none;
     }
   }
-  ${({ hasHovered }) =>
-    hasHovered &&
+  ${({ hasHovered: { toolbox } }) =>
+    toolbox &&
     css`
-      color: #090909;
+      color: #393e41;
       background: #ffe74c;
       span {
         display: none;
