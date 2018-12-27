@@ -3,6 +3,7 @@ import Header from "./Header";
 import Search from "./Search";
 import Grid from "./Grid";
 import GridCell from "./GridCell";
+import Legend from "./Legend";
 import { Wrap } from "./styles";
 import tools from "./_data.js";
 
@@ -26,6 +27,7 @@ export default class Toolbox extends React.Component {
           perPage={9}
           searchTerm={search}
         />
+        <Legend />
       </Wrap>
     );
   }

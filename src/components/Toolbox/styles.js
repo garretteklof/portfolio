@@ -227,3 +227,80 @@ export const PagArrow = styled(Icon)`
     cursor: pointer;
   }
 `;
+
+export const LegendWrap = styled.aside`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  background: transparent;
+  padding: 1rem 2rem;
+  > * {
+    &:not(:first-of-type) {
+      margin-left: 1rem;
+    }
+    &:not(:last-of-type) {
+      margin-right: 1rem;
+    }
+  }
+`;
+
+export const LEBack = styled.div`
+  position: relative;
+  height: 6rem;
+  width: 6rem;
+  background: #fefeff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+`;
+
+export const LE = styled(Icon)`
+  height: 4rem;
+  width: 4rem;
+`;
+
+export const LETag = styled.div`
+  position: absolute;
+  background: #fefeff;
+  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
+  text-align: center;
+  ${({ emoji }) => {
+    switch (emoji) {
+      case "cheer":
+        return css`
+          top: -2rem;
+          left: -4rem;
+          transform: rotate(-15deg);
+        `;
+      case "star":
+        return css`
+          top: -4rem;
+          left: 0;
+          width: 6rem;
+        `;
+      case "happy":
+        return css`
+          top: -3.5rem;
+          left: 0;
+          width: 6rem;
+        `;
+      case "grad":
+        return css`
+          top: -4rem;
+          left: 0rem;
+          width: 6rem;
+        `;
+      case "3d":
+        return css`
+          top: -3rem;
+          left: 0;
+          transform: rotate(25deg);
+        `;
+    }
+  }}
+`;
