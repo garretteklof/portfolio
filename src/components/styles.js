@@ -1,34 +1,71 @@
 import styled, { css, keyframes } from "styled-components";
 import { bounce, fadeInDown } from "react-animations";
-import Icon from "./SpriteIcon";
 
-const COLORS = {
-  white: "#fefeff",
-  darkGrey: "#393e41",
-  blue: "#30bced",
-  orange: "#f25757",
-  purple: "#e36397",
-  yellow: "#ffe74c",
-  starYellow: "#f6f740"
+const sizes = {
+  [1000]: 1000,
+  [700]: 700,
+  [600]: 600,
+  [500]: 500,
+  [400]: 400
 };
 
+const media = Object.keys(sizes).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (max-width: ${sizes[label] / 16}em) {
+      ${css(...args)}
+    }
+  `;
+
+  return acc;
+}, {});
+
 export const MainWrap = styled.main`
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
+  height: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr min-content;
   overflow: hidden;
   animation: 0.2s ${keyframes`${fadeInDown}`};
+  ${media[1000]`
+    grid-template-columns: 1fr;
+    justify-items: center;
+  `}
 `;
 
 export const BitMe = styled.img`
   margin-top: auto;
   margin-right: 1rem;
-  min-height: 50rem;
+  min-height: 60rem;
+  max-height: calc(100vw);
   height: calc(100vh - 1rem);
   width: auto;
-  @media only screen and (max-height: 31.25em) {
-  }
+  ${media[1000]`
+    order: -1;
+    margin-right: 0;
+    height: 100vh;
+    transform: translate(2rem, 0.5rem);
+    z-index: -1;
+  `}
+  ${media[700]`
+    margin-top: 5rem;
+    height: calc(100vh - 5rem);
+  `}
+  ${media[600]`
+    min-height: auto;
+    transform: translateX(0);
+    margin-top: 12rem;
+    height: calc(100vh - 12rem);
+  `}
+  ${media[500]`
+    margin-top: 26rem;
+    height: calc(100vh - 26rem);
+  `}
+  ${media[400]`
+    margin-top: 36rem;
+    height: calc(100vh - 36rem);
+  `}
 `;
 
 export const Who = styled.div`
@@ -39,11 +76,17 @@ export const Who = styled.div`
   grid-template-columns: repeat(3, min-content);
   grid-row-gap: 1.5rem;
   text-align: right;
+  @media only screen and (max-height: 34.375em) {
+    align-content: end;
+  }
   > h1 {
     grid-column: 1 / -1;
     font-size: 14rem;
     font-weight: 300;
     line-height: 12rem;
+    @media only screen and (max-height: 34.375em) {
+      margin-top: 4rem;
+    }
   }
   > p {
     grid-column: 1 / -1;
@@ -51,6 +94,24 @@ export const Who = styled.div`
     font-weight: 300;
     padding-left: 14rem; /* force break sentence */
   }
+  ${media[1000]`
+    border-top: 1rem solid #090909;
+    text-align: center;
+    width: 100%;
+    > p {
+      padding-left: 0;
+    }
+  `}
+  ${media[500]`
+    > h1 {
+      margin-top: 2rem;
+      font-size: 10rem;
+      line-height: 8rem;
+    }
+    > p {
+      font-size: 3rem;
+    }
+  `}
 `;
 
 export const SocialLink = styled.a`
@@ -61,6 +122,9 @@ export const SocialLink = styled.a`
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   transition: all 0.4s;
   justify-self: end;
+  ${media[1000]`
+    justify-self: center;
+  `}
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
@@ -79,7 +143,7 @@ export const SocialLink = styled.a`
 
 export const Leftside = styled.div`
   position: absolute;
-  top: 0rem;
+  top: 0;
   left: 3rem;
   display: flex;
   align-items: center;
@@ -88,14 +152,10 @@ export const Leftside = styled.div`
   color: #090909;
   a:hover {
     ~ p {
-      transform: translate(-7.5rem, 2rem);
-      width: 0rem;
-      margin: 0;
+      transform: translate(-8rem, -2rem);
     }
     > svg {
-      transform: translate(-4rem, 1rem) rotate(0deg);
-      height: 12rem;
-      width: 12rem;
+      transform: translate(-1rem, 0) rotate(-90deg);
     }
   }
   p {
@@ -115,21 +175,40 @@ export const Leftside = styled.div`
 
   ${({ hasHovered: { leftside } }) =>
     leftside &&
+    window.innerHeight > 600 &&
+    window.innerWidth > 700 &&
     css`
       > p {
-        transform: translate(-7.5rem, 2rem);
-        width: 0rem;
-        margin: 0;
+        transform: translate(-8rem, -2rem);
       }
       > a > svg {
-        transform: translate(-4rem, 1rem) rotate(0deg);
-        height: 12rem;
-        width: 12rem;
+        transform: translate(-1rem, 0) rotate(-90deg);
       }
     `}
-
   @media only screen and (max-height: 34.375em) {
+    top: -1rem;
+    a:hover {
+      ~ p {
+        transform: none;
+      }
+      > svg {
+        transform: rotate(-90deg);
+      }
+    }
   }
+  ${media[700]`
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    a:hover {
+      ~ p {
+        transform: none;
+      }
+      > svg {
+        transform: rotate(-90deg);
+      }
+    }
+  `}
 `;
 
 export const SkillsLink = styled.div`
@@ -153,7 +232,7 @@ export const SkillsLink = styled.div`
     position: absolute;
     display: block;
     bottom: -6rem;
-    left: 45%;
+    left: 47%;
     font-size: 5rem;
     animation: 6s ${keyframes`${bounce}`} 3s infinite;
   }
@@ -174,41 +253,25 @@ export const SkillsLink = styled.div`
         display: none;
       }
     `}
-`;
-
-export const StarBox = styled.div`
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-`;
-
-export const StarIcon = styled(Icon)`
-  height: 10rem;
-  width: 10rem;
-`;
-
-export const StarBubble = styled.div`
-  position: relative;
-  background: #f7f7f7;
-  border-radius: 0.4em;
-  padding: 3rem 2rem;
-  text-align: center;
-  color: #393e41;
-  font-family: "Londrina Solid", cursive;
-  font-size: 3rem;
-  transform: translate(4rem, -1rem);
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border: 60px solid transparent;
-    border-top-color: #f7f7f7;
-    border-bottom: 0;
-    border-left: 0;
-    margin-left: -15px;
-    margin-bottom: -30px;
+  @media only screen and (max-height: 34.375em) {
+    position: static;
+    bottom: auto;
+    left: auto;
+    transform: none;
   }
+  ${media[1000]`
+    position: static;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 1.5rem;
+    color: #393e41;
+    background: #ffe74c;
+    span {
+      display: none;
+    }
+  `}
+  ${media[500]`
+    width: 100%;
+  `}
 `;

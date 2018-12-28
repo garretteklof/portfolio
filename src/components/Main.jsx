@@ -10,14 +10,33 @@ import {
 } from "./styles";
 
 export default class Main extends React.Component {
-  state = {
-    hasHovered: {
-      leftside: false,
-      toolbox: false
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasHovered: {
+        leftside: false,
+        toolbox: false
+      },
+      shrinkToolText: this.checkToolText()
+    };
+  }
+  componentDidMount() {
+    window.addEventListener("resize", this.handleResize);
+  }
+
+  componentWillMount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
+
+  handleResize = () => this.setState({ shrinkToolText: this.checkToolText() });
+
+  checkToolText = () => {
+    if (window.innerWidth <= 500) return true;
+    else return false;
   };
+
   render() {
-    const { hasHovered } = this.state;
+    const { hasHovered, shrinkToolText } = this.state;
     const {
       history: { push }
     } = this.props;
@@ -60,7 +79,9 @@ export default class Main extends React.Component {
             onClick={() => push("/toolbox")}
             {...this.state}
           >
-            Click Here To Explore Technological Competence
+            {shrinkToolText
+              ? "Click Here"
+              : "Click Here To Explore Technological Competence"}
             <span>👀</span>
           </SkillsLink>
         </Who>
