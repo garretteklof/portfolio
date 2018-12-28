@@ -2,6 +2,22 @@ import styled, { css, keyframes } from "styled-components";
 import { fadeInUp } from "react-animations";
 import Icon from "../SpriteIcon";
 
+const sizes = {
+  [750]: 750,
+  [480]: 480,
+  [340]: 340
+};
+
+const media = Object.keys(sizes).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (max-width: ${sizes[label] / 16}em) {
+      ${css(...args)}
+    }
+  `;
+
+  return acc;
+}, {});
+
 export const Wrap = styled.div`
   min-height: 100vh;
   min-width: 100vw;
@@ -13,6 +29,7 @@ export const Wrap = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   > * {
     &:not(:last-child) {
       margin-bottom: 2rem;
@@ -28,6 +45,9 @@ const disappear = keyframes`
 
 export const Header = styled.div`
   position: relative;
+  @media only screen and (max-height: 40.625em) {
+    margin-top: 8rem;
+  }
   > span {
     position: absolute;
     top: -3rem;
@@ -141,6 +161,14 @@ export const DataGrid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
+  ${media[750]`
+    min-width: 45rem;
+    grid-template-columns: repeat(2, 1fr);
+  `}
+  ${media[480]`
+    min-width: 30rem;
+    grid-template-columns: 1fr;
+  `}
 `;
 
 export const DataNug = styled.div`
@@ -279,6 +307,13 @@ export const LegendWrap = styled.aside`
       margin-right: 1rem;
     }
   }
+  @media only screen and (max-height: 40.625em) {
+    margin-top: 2.5rem;
+    position: static;
+    bottom: auto;
+    left: auto;
+    transform: none;
+  }
 `;
 
 export const LEBack = styled.div`
@@ -312,6 +347,11 @@ export const LETag = styled.div`
           left: -4rem;
           transform: rotate(-25deg);
           padding: 0.5rem 0.5rem;
+          ${media[340]`
+            padding: 0;
+            top: -2rem;
+            left: -2rem;
+          `}
         `;
       case "star":
         return css`
@@ -337,6 +377,9 @@ export const LETag = styled.div`
           left: 0;
           transform: rotate(25deg);
           padding: 0.5rem 0.5rem;
+          ${media[340]`
+            padding: 0;
+          `}
         `;
     }
   }}

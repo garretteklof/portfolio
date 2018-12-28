@@ -5,20 +5,22 @@ export default class Grid extends React.Component {
   constructor(props) {
     super(props);
     const numData = props.data.length;
-    const perPage = props.perPage || 6;
-    const totalPages = numData ? Math.ceil(numData / perPage) : 1;
+    const totalPages = numData ? Math.ceil(numData / props.perPage) : 1;
     this.state = {
       data: props.data,
+      perPage: props.perPage,
       page: 1,
-      perPage,
       totalPages
     };
   }
 
   componentDidUpdate(prevProps) {
-    const { searchTerm } = this.props;
+    const { searchTerm, perPage } = this.props;
     if (searchTerm !== prevProps.searchTerm) {
       this.searchData();
+    }
+    if (perPage !== prevProps.perPage) {
+      this.setState({ perPage });
     }
   }
 
@@ -79,11 +81,8 @@ export default class Grid extends React.Component {
   };
 
   render() {
-    const { data } = this.state;
+    const { data, page } = this.state;
     const { DataComponent } = this.props;
-    const handlers = {
-      hidePaginateForward: this.hidePaginateForward
-    };
     return (
       <>
         <DataGrid>
@@ -95,7 +94,7 @@ export default class Grid extends React.Component {
             <NoData>Couldn't find it in the toolbox.</NoData>
           )}
         </DataGrid>
-        <PagWrap {...this.state} {...handlers}>
+        <PagWrap page={page} hidePaginateForward={this.hidePaginateForward}>
           <PagArrow
             className="toolbox-arrow-back"
             icon="arrow-back"
