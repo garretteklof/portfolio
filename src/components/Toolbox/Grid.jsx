@@ -61,7 +61,6 @@ export default class Grid extends React.Component {
   keepCell = (dataObj, search) => {
     for (const prop in dataObj) {
       if (
-        prop !== "rating" &&
         typeof dataObj[prop] === "string" &&
         dataObj[prop].toLowerCase().includes(search.toLowerCase())
       ) {
