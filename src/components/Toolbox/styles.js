@@ -103,6 +103,13 @@ export const Header = styled.div`
       margin-top: -1rem;
       margin-left: -1rem;
     }
+    ${media[750]`
+      width: 6rem;
+    `}
+    ${media[340]`
+      animation: none;
+      display: none;
+    `}
   }
 `;
 
