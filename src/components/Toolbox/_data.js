@@ -1,17 +1,17 @@
 export default [
   {
     name: "html",
-    rating: "all-american",
+    rating: "crackerjack",
     tags: ["front end"]
   },
   {
     name: "css",
-    rating: "all-american",
+    rating: "crackerjack",
     tags: ["front end", "css"]
   },
   {
     name: "js",
-    rating: "all-american",
+    rating: "crackerjack",
     tags: ["front end", "javascript"]
   },
   {
@@ -21,12 +21,12 @@ export default [
   },
   {
     name: "boot-strap",
-    rating: "graduated",
+    rating: "moved on",
     tags: ["css"]
   },
   {
     name: "bulma",
-    rating: "graduated",
+    rating: "moved on",
     tags: ["css"]
   },
   {
@@ -56,7 +56,7 @@ export default [
   },
   {
     name: "gulp",
-    rating: "graduated",
+    rating: "moved on",
     tags: ["build"]
   },
   {
@@ -71,7 +71,7 @@ export default [
   },
   {
     name: "jquery",
-    rating: "graduated",
+    rating: "moved on",
     tags: ["front end", "javascript"]
   },
   {
@@ -121,7 +121,7 @@ export default [
   },
   {
     name: "react",
-    rating: "all-american",
+    rating: "crackerjack",
     tags: ["front end", "javascript"]
   },
   {
@@ -141,7 +141,7 @@ export default [
   },
   {
     name: "styled-comps",
-    rating: "all-american",
+    rating: "crackerjack",
     tags: ["front end", "css", "javascript"]
   },
   {

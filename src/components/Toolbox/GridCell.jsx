@@ -5,16 +5,15 @@ import { DataNug } from "./styles";
 
 const mapRatingToEmoji = rating => {
   switch (rating) {
-    case "all-american":
+    case "crackerjack":
       return "emoji-cheer";
     case "well-versed":
       return "emoji-star";
     case "versed":
       return "emoji-happy";
-    case "graduated":
+    case "moved on":
       return "emoji-grad";
-
-    case "interested":
+    case "currently learning":
       return "emoji-3d";
   }
 };
