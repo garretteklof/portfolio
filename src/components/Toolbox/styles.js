@@ -283,8 +283,8 @@ export const LegendWrap = styled.aside`
 
 export const LEBack = styled.div`
   position: relative;
-  height: 6rem;
-  width: 6rem;
+  height: 4rem;
+  width: 4rem;
   background: #fefeff;
   display: flex;
   align-items: center;
@@ -293,47 +293,50 @@ export const LEBack = styled.div`
 `;
 
 export const LE = styled(Icon)`
-  height: 4rem;
-  width: 4rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  z-index: 1;
 `;
 
 export const LETag = styled.div`
   position: absolute;
   background: #fefeff;
-  padding: 0.5rem 1rem;
-  font-size: 1.4rem;
+  padding: 0.5rem 0rem;
+  font-size: 1.2rem;
   text-align: center;
   ${({ emoji }) => {
     switch (emoji) {
       case "cheer":
         return css`
-          top: -2rem;
+          top: -1rem;
           left: -4rem;
-          transform: rotate(-15deg);
+          transform: rotate(-25deg);
+          padding: 0.5rem 0.5rem;
         `;
       case "star":
         return css`
-          top: -4rem;
+          top: -3rem;
           left: 0;
-          width: 6rem;
+          width: 4rem;
         `;
       case "happy":
         return css`
-          top: -3.5rem;
+          top: -2rem;
           left: 0;
-          width: 6rem;
+          width: 4rem;
         `;
       case "grad":
         return css`
-          top: -4rem;
-          left: 0rem;
-          width: 6rem;
+          top: -3rem;
+          left: 0;
+          width: 4rem;
         `;
       case "3d":
         return css`
-          top: -3rem;
+          top: -2rem;
           left: 0;
           transform: rotate(25deg);
+          padding: 0.5rem 0.5rem;
         `;
     }
   }}
