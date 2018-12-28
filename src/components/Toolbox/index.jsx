@@ -52,8 +52,6 @@ export default class Toolbox extends React.Component {
     const handlers = {
       handleSearch: this.handleSearch
     };
-    console.log(toolsPerPage);
-
     return (
       <Wrap>
         <Header {...this.props} />
