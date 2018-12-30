@@ -31,10 +31,10 @@ export default class Toolbox extends React.Component {
 
   sortTools = (a, b) => {
     const order = [
+      "currently learning",
       "crackerjack",
       "well-versed",
       "versed",
-      "currently learning",
       "moved on"
     ];
     return order.indexOf(a.rating) - order.indexOf(b.rating);
