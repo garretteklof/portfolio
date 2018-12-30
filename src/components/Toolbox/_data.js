@@ -55,6 +55,11 @@ export default [
     tags: ["api"]
   },
   {
+    name: "graphql",
+    rating: "currently learning",
+    tags: ["back end", "database"]
+  },
+  {
     name: "gulp",
     rating: "moved on",
     tags: ["build"]
