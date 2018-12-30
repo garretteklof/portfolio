@@ -38,7 +38,6 @@ export const BitMe = styled.img`
   margin-top: auto;
   margin-right: 1rem;
   min-height: 60rem;
-  max-height: calc(100vw);
   height: calc(100vh - 1rem);
   width: auto;
   ${media[1000]`
@@ -52,20 +51,22 @@ export const BitMe = styled.img`
     margin-top: 5rem;
     height: calc(100vh - 5rem);
   `}
-  ${media[600]`
+  ${({ bitMeHeight }) =>
+    bitMeHeight &&
+    css`
+    ${media[600]`
     min-height: auto;
     transform: translateX(0);
-    margin-top: 12rem;
-    height: calc(100vh - 12rem);
+    height: auto;
+    width: 100vw;
+    margin-top: calc(100vh - ${bitMeHeight}px)
   `}
   ${media[500]`
-    margin-top: 26rem;
-    height: calc(100vh - 26rem);
   `}
   ${media[400]`
-    margin-top: 36rem;
-    height: calc(100vh - 36rem);
   `}
+  `}
+
 `;
 
 export const Who = styled.div`
@@ -79,6 +80,11 @@ export const Who = styled.div`
   @media only screen and (max-height: 34.375em) {
     align-content: end;
   }
+  @media not all and (min-resolution: 0.001dpcm) {
+    @media {
+    }
+  }
+
   > h1 {
     grid-column: 1 / -1;
     font-size: 14rem;

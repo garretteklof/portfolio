@@ -17,8 +17,10 @@ export default class Main extends React.Component {
         leftside: false,
         toolbox: false
       },
-      shrinkToolText: this.checkToolText()
+      shrinkToolText: this.checkToolText(),
+      bitMeHeight: null
     };
+    this.bitMeRef = React.createRef();
   }
   componentDidMount() {
     window.addEventListener("resize", this.handleResize);
@@ -28,7 +30,14 @@ export default class Main extends React.Component {
     window.removeEventListener("resize", this.handleResize);
   }
 
-  handleResize = () => this.setState({ shrinkToolText: this.checkToolText() });
+  handleResize = () => {
+    this.setState({
+      shrinkToolText: this.checkToolText(),
+      bitMeHeight: this.getBitMeHeight()
+    });
+  };
+
+  getBitMeHeight = () => this.bitMeRef.current.offsetHeight;
 
   checkToolText = () => {
     if (window.innerWidth <= 500) return true;
@@ -85,7 +94,13 @@ export default class Main extends React.Component {
             <span>👀</span>
           </SkillsLink>
         </Who>
-        <BitMe src="images/me.svg" alt="garrett eklof" />
+        <BitMe
+          src="images/me.svg"
+          alt="garrett eklof"
+          ref={this.bitMeRef}
+          onLoad={e => this.setState({ bitMeHeight: window.innerWidth * 1.4 })}
+          {...this.state}
+        />
       </Wrap>
     );
   }
