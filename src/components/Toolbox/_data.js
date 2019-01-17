@@ -35,6 +35,11 @@ export default [
     tags: ["api"]
   },
   {
+    name: "docker",
+    rating: "currently learning",
+    tags: ["build"]
+  },
+  {
     name: "express",
     rating: "well-versed",
     tags: ["back end", "javascript"]
@@ -78,6 +83,11 @@ export default [
     name: "jquery",
     rating: "moved on",
     tags: ["front end", "javascript"]
+  },
+  {
+    name: "kuber-netes",
+    rating: "currently learning",
+    tags: ["build"]
   },
   {
     name: "leaflet",
