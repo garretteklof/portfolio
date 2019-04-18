@@ -15,6 +15,11 @@ export default [
     tags: ["front end", "javascript"]
   },
   {
+    name: "angular",
+    rating: "currently learning",
+    tags: ["front end", "javascript"]
+  },
+  {
     name: "babel",
     rating: "well-versed",
     tags: ["build"]
@@ -36,7 +41,7 @@ export default [
   },
   {
     name: "docker",
-    rating: "currently learning",
+    rating: "versed",
     tags: ["build"]
   },
   {
@@ -55,13 +60,18 @@ export default [
     tags: ["back end", "python"]
   },
   {
+    name: "gatsby",
+    rating: "currently learning",
+    tags: ["build", "front end", "javascript"]
+  },
+  {
     name: "google-dev",
     rating: "well-versed",
     tags: ["api"]
   },
   {
     name: "graphql",
-    rating: "currently learning",
+    rating: "versed",
     tags: ["back end", "database"]
   },
   {
@@ -80,13 +90,18 @@ export default [
     tags: ["design"]
   },
   {
+    name: "ionic",
+    rating: "currently learning",
+    tags: ["mobile", "javascript"]
+  },
+  {
     name: "jquery",
     rating: "moved on",
     tags: ["front end", "javascript"]
   },
   {
     name: "kuber-netes",
-    rating: "currently learning",
+    rating: "versed",
     tags: ["build"]
   },
   {
