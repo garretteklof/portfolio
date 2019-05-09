@@ -16,7 +16,7 @@ export default [
   },
   {
     name: "angular",
-    rating: "currently learning",
+    rating: "versed",
     tags: ["front end", "javascript"]
   },
   {
@@ -61,7 +61,7 @@ export default [
   },
   {
     name: "gatsby",
-    rating: "currently learning",
+    rating: "versed",
     tags: ["build", "front end", "javascript"]
   },
   {
@@ -91,7 +91,7 @@ export default [
   },
   {
     name: "ionic",
-    rating: "currently learning",
+    rating: "versed",
     tags: ["mobile", "javascript"]
   },
   {
@@ -155,6 +155,11 @@ export default [
     tags: ["front end", "javascript"]
   },
   {
+    name: "react-native",
+    rating: "currently learning",
+    tags: ["mobile", "javascript"]
+  },
+  {
     name: "redux",
     rating: "well-versed",
     tags: ["front end", "javascript"]
@@ -173,6 +178,11 @@ export default [
     name: "styled-comps",
     rating: "crackerjack",
     tags: ["front end", "css", "javascript"]
+  },
+  {
+    name: "ts",
+    rating: "versed",
+    tags: ["front end", "javascript"]
   },
   {
     name: "vue",
