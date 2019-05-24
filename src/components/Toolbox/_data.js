@@ -15,6 +15,11 @@ export default [
     tags: ["front end", "javascript"]
   },
   {
+    name: "after-effects",
+    rating: "currently learning",
+    tags: ["design"]
+  },
+  {
     name: "angular",
     rating: "versed",
     tags: ["front end", "javascript"]
